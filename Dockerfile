@@ -1,11 +1,15 @@
-FROM alpine:3.3
+FROM alpine:3.8
 
-RUN apk add --no-cache \
+RUN apk update \
+    && \
+
+    apk add --no-cache \
             xvfb \
             # Additionnal dependencies for better rendering
             ttf-freefont \
             fontconfig \
             dbus \
+            mesa-dri-swrast \
     && \
 
     # Install wkhtmltopdf from `testing` repository
